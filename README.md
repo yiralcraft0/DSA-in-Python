@@ -1,5 +1,12 @@
 # 📘 DSA In Python
 
+## 👨‍💻 Author : **Priyanshu AKA(YiralcrafT)**
+### Student passionate about:
+- Python 🐍
+- Data Structures 📊
+- AL & ML
+- Problem Solving 🧠
+
 A personal repository where I implement **Data Structures and Algorithms (DSA)** from scratch using Python.  
 This project is part of my journey to deeply understand how data structures work internally instead of only using built-in Python features.
 
@@ -22,6 +29,14 @@ Each implementation is written from scratch to understand:
 - Time and space complexity
 - Pointer/reference manipulation
 - Real-world problem solving
+
+---
+
+## 🎯 Goal of This Repo
+
+Move From: “I know DSA”
+
+To: “I understand how DSA works internally and can build it from scratch”
 
 ---
 
@@ -50,3 +65,9 @@ ll.append(30)
 ll.prepend(5)
 
 print(ll)
+```
+## ⭐ If you like this repo
+### Feel free to star ⭐ it and follow my journey as I build more advanced DSA concepts step by step.
+
+---
+
