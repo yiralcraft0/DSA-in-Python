@@ -159,8 +159,6 @@ if (__name__ == "__main__"):
     # Create a ListedList Object
     linked_list = LinkedList()
 
-    print(f'{linked_list}')
-
     # Insert a new node at the end of the linked list.
     linked_list.append(10)
     linked_list.append(20)
@@ -204,7 +202,8 @@ if (__name__ == "__main__"):
     print(linked_list.search(data=20))
     print(linked_list.search(data=60))
 
-    # Print the linked list in link format.Example: [10] -> [20] -> [30] -> null
+    # Print the linked list in link format. 
+    # Example: [10] -> [20] -> [30] -> null
     linked_list.showLink()
 
     # Uses __str__() to print the list like a Python list.
