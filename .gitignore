@@ -10,7 +10,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+ex.py
 # Virtual Environments (in case you create one later)
 venv/
 env/

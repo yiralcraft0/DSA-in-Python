@@ -9,6 +9,23 @@ class LinkedList:
     def __init__(this):
         this.node = None
 
+    def append(this, data) -> None:
+        new_node = Node(data)
+        current = this.node
+
+        if this.node is None:
+            this.node = new_node
+            return
+
+        while current.next:
+            current = current.next
+        current.next = new_node
+
+    def prepend(this, data) -> None:
+        new_node = Node(data)
+        new_node.next = this.node
+        this.node = new_node
+
     def showLink(this) -> list:
         current = this.node
         while current:
@@ -34,22 +51,6 @@ class LinkedList:
             current = current.next
         return (currentMax)
 
-    def append(this, data) -> None:
-        new_node = Node(data)
-        current = this.node
-
-        if this.node is None:
-            this.node = new_node
-            return
-
-        while current.next:
-            current = current.next
-        current.next = new_node
-
-    def prepend(this, data) -> None:
-        new_node = Node(data)
-        new_node.next = this.node
-        this.node = new_node
 
     def length(this) -> int:
         i = 0
