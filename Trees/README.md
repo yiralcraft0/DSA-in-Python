@@ -1,4 +1,5 @@
-## This a summery of my learnings from AI sorces.
+## Note: This Is Summery Of What I Learned From AI Sourses.
+---
 
 # 🌳 CHAPTER 1 — Why Trees?-----------------------
 
@@ -353,4 +354,419 @@ Space Complexity:
 * Different Binary Tree types optimize different use cases.
 * Traversals define different ways of visiting nodes.
 * Understanding traversals is essential before learning **Binary Search Trees (BSTs)**, **AVL Trees**, **Heaps**, and advanced tree algorithms.
+
+---
+
+# 🌳 CHAPTER 7 — Binary Search Tree (BST)
+
+## 📌 Why do we need BST?
+
+A normal Binary Tree has no ordering.
+
+Example:
+
+```text
+        10
+       /  \
+      50   20
+```
+
+To search for a value, you may need to visit every node.
+
+**Time Complexity:** O(n)
+
+BST solves this by storing values in a sorted manner.
+
+---
+
+# 📌 Golden Rule of BST
+
+For **every node**:
+
+```text
+Left Subtree < Node < Right Subtree
+```
+
+Or simply:
+
+```text
+Smaller → At Left
+Larger  → At Right
+```
+
+This rule must be true for **every node in the tree**, not just the root.
+
+---
+
+# 📌 Important Observation
+
+A node must satisfy the BST property with respect to **all of its ancestors**, not just its parent.
+
+Example:
+
+```text
+        50
+       /
+      30
+        \
+         60
+```
+
+Although:
+
+```text
+60 > 30
+```
+
+it is still **not** a BST because:
+
+```text
+60 is inside the left subtree of 50
+
+60 > 50 ❌
+```
+
+Everything in the left subtree of 50 must be **less than 50**.
+
+---
+
+# 📌 Searching in BST
+
+At every node:
+
+```text
+If value < node → Go Left
+
+If value > node → Go Right
+
+If equal → Found
+```
+
+Instead of searching the whole tree, BST eliminates half of the remaining search space at each comparison.
+
+Average Time Complexity:
+
+```text
+O(log n)
+```
+
+Worst Case (Skewed Tree):
+
+```text
+O(n)
+```
+
+---
+
+# 🌳 CHAPTER 8 — BST Operations
+
+---
+
+## 📌 Designing the Tree Class
+
+A Tree object stores only one thing:
+
+```python
+root
+```
+
+Why?
+
+Because every node is reachable from the root.
+
+Think of the root as the **entry point** to the entire tree.
+
+---
+
+## 📌 Node Class
+
+Each Node stores:
+
+* data
+* left child reference
+* right child reference
+
+The Tree manages nodes.
+
+---
+
+# 📌 Recursive Insert
+
+### Base Case
+
+If the current node is:
+
+```text
+None
+```
+
+Create and return a new node.
+
+---
+
+### Recursive Case
+
+Compare the new value with the current node.
+
+```text
+Smaller → Left
+
+Greater → Right
+```
+
+Recursively insert into the appropriate subtree.
+
+---
+
+### Most Important Line
+
+After recursion finishes:
+
+```text
+Return the current node.
+```
+
+Why?
+
+Because recursion rebuilds the subtree while returning.
+
+Every recursive call returns the updated subtree root back to its parent.
+
+---
+
+# 📌 Recursive Search
+
+Algorithm:
+
+```text
+If node is None
+    Return False
+
+If value == node.data
+    Return True
+
+If value < node.data
+    Search Left
+
+Else
+    Search Right
+```
+
+Unlike insert, search **does not modify the tree**.
+
+It only follows one path from root to leaf.
+
+---
+
+# 📌 Find Minimum
+
+Observation:
+
+The smallest value is always found by continuously moving left.
+
+Algorithm:
+
+```text
+Start at root
+
+While left child exists
+
+    Move left
+
+Return current node
+```
+
+Time Complexity:
+
+```text
+O(h)
+```
+
+where **h** is the height of the tree.
+
+---
+
+# 📌 Find Maximum
+
+Exactly the opposite.
+
+Algorithm:
+
+```text
+Start at root
+
+While right child exists
+
+    Move right
+
+Return current node
+```
+
+Time Complexity:
+
+```text
+O(h)
+```
+
+---
+
+# 📌 BST Deletion (Concept)
+
+Deletion has **three cases**.
+
+---
+
+## Case 1 — Leaf Node
+
+```text
+      30
+
+Delete 30
+```
+
+Simply remove it.
+
+---
+
+## Case 2 — One Child
+
+Example:
+
+```text
+      30
+     /
+   20
+```
+
+Delete 30.
+
+Instead of deleting the subtree:
+
+Connect the parent directly to 20.
+
+Result:
+
+```text
+20
+```
+
+The subtree survives.
+
+---
+
+## Case 3 — Two Children
+
+Example:
+
+```text
+        50
+       /  \
+     30    70
+    / \   / \
+   20 40 60 80
+```
+
+Deleting 50 directly would disconnect both subtrees.
+
+Instead:
+
+Replace it with either:
+
+* **Inorder Successor** (smallest value in the right subtree), or
+* **Inorder Predecessor** (largest value in the left subtree).
+
+Then delete that replacement node from its original position.
+
+Both methods preserve the BST property.
+
+---
+
+# 📌 Inorder Successor
+
+Definition:
+
+The **smallest node in the right subtree**.
+
+How to find it:
+
+```text
+Go Right
+
+Then keep going Left
+```
+
+---
+
+# 📌 Inorder Predecessor
+
+Definition:
+
+The **largest node in the left subtree**.
+
+How to find it:
+
+```text
+Go Left
+
+Then keep going Right
+```
+
+---
+
+# 📌 Complexity Summary
+
+| Operation | Average  | Worst |
+| --------- | -------- | ----- |
+| Search    | O(log n) | O(n)  |
+| Insert    | O(log n) | O(n)  |
+| Delete    | O(log n) | O(n)  |
+| Find Min  | O(h)     | O(n)  |
+| Find Max  | O(h)     | O(n)  |
+
+Where:
+
+* **h** = height of the tree
+
+---
+
+# 🧠 Key Concepts Learned
+
+* BST maintains an ordering property.
+* Every comparison eliminates half of the remaining search space.
+* The Tree object only stores the **root**.
+* Recursive insert works by **returning updated subtree roots**.
+* Search never changes the tree.
+* The minimum value is found by repeatedly moving left.
+* The maximum value is found by repeatedly moving right.
+* Deletion is not about removing nodes blindly—it is about **rewiring the tree** while preserving the BST property.
+* Nodes with two children are handled using the inorder successor or inorder predecessor.
+
+---
+
+# 🎯 Final Revision Cheatsheet
+
+```text
+BST Rule:
+Left < Node < Right
+
+Insert:
+Compare → Left/Right → Return node
+
+Search:
+Compare → Left/Right → Found or None
+
+Minimum:
+Keep going Left
+
+Maximum:
+Keep going Right
+
+Delete:
+Leaf → Remove
+One Child → Replace with child
+Two Children → Replace with Successor/Predecessor
+```
+
+---
+
 
