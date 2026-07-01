@@ -38,7 +38,7 @@ class Queues():
     def peek(this):
         return this.queues[0]
     
-    def isEmpty(this):
+    def isEmpty(this) -> bool:
         return not bool(this.queues)
 
     def size(this):
@@ -46,3 +46,9 @@ class Queues():
 
     def show(this):
         return this.queues
+
+
+
+a = [1]
+
+print(bool(a))
