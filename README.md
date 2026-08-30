@@ -1,11 +1,6 @@
 # 📘 DSA In Python
 
 ## 👨‍💻 Author : **Priyanshu AKA(YiralcrafT)**
-### Student passionate about:
-- Python 🐍
-- Data Structures 📊
-- AL & ML
-- Problem Solving 🧠
 
 A personal repository where I implement **Data Structures and Algorithms (DSA)** from scratch using Python.  
 This project is part of my journey to deeply understand how data structures work internally instead of only using built-in Python features.
