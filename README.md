@@ -47,20 +47,6 @@ This repository helps me improve:
 
 ---
 
-## 📌 Linked List Example
-
-```python
-from linked_list import LinkedList, Node
-
-ll = LinkedList()
-
-ll.append(20)
-ll.append(30)
-
-ll.prepend(5)
-
-print(ll)
-```
 ## ⭐ If you like this repo
 ### Feel free to star ⭐ it and follow my journey as I build more advanced DSA concepts step by step.
 
